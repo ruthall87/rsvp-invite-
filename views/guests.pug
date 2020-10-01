@@ -1,3 +1,14 @@
-ul
-each response in responses
-    li #{response.name}
+
+html
+    head
+    body
+        div 
+            h1 attending 
+            ul
+            each person in attending
+                li=`${person.name}${person.number}` 
+        div    
+            h1 Not attending 
+            ul
+            each person in attendingNO
+                li=`${person.name}` 

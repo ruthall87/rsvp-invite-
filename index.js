@@ -12,7 +12,7 @@ mongoose.connect(
 );
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
@@ -21,7 +21,7 @@ const responseSchema = new mongoose.Schema({
     name: String,
     email: String,
     guest: Number,
-    attending: Boolean,
+    attending: String,
 });
 
 const Response = mongoose.model('Responses', responseSchema);
@@ -54,14 +54,20 @@ app.post('/reply', async (req, res) => {
     }
 });
 app.get('/guests', (req, res) => {
-    Response.find({}, function(err, response){
-        if(err) return console.error(err);
-        else res.render('guests', {responses: response});
-    });
+    Response.find({attending: 'attending'}, function(err, attending){ 
+        Response.find({attending: 'attendingNO'}, function(err, attendingNO){
+            res.render('guests',({ 
+                attendingNO: attendingNO,
+                attending: attending 
+
+            }))
+        })
+    })
+        
 });
 
 
-app.listen(3000);
+app.listen(3002);
 
 
 

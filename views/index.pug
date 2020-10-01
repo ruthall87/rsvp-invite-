@@ -14,14 +14,23 @@ html(lang="en")
         br
         fieldset
             legend= 'Are you attending?'
-            label(for="attendingYes") I'll be there!
-            input(type="radio" name="attending" id="attending")
+            label(for="attending") I'll be there!
+            input(type="radio" name="attending" value= "attending" id="attending")
             br
             label(for="attendingNo") I will not be there!
-            input(type="radio" name="attending" id="attending")
+            input(type="radio" name="attending" value="attendingNO" id="attending")
             br
             br
             label(for="guests") Number of guests
-             input(type="number", name="guest", min=0, max=8)
+             select(name="guests" )
+                option(value="0") 0
+                option(value="1") 1
+                option(value="2") 2
+                option(value="3") 3
+                option(value="4") 4
+                option(value="5") 5
+                option(value="6") 6
+                option(value="7") 7
+                option(value="8") 8
         input(type="submit")    
             
