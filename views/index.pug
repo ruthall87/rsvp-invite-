@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        title= RVSP
+    body
+      form(action="/reply" method="POST")
+        label(for="name") Name:
+        input(type="text", id="name" name="name")
+        br
+        br
+        label(for="email") Email:
+        input(type="email", name="email")
+        br
+        br
+        fieldset
+            legend= 'Are you attending?'
+            label(for="attendingYes") I'll be there!
+            input(type="radio" name="attending" id="attending")
+            br
+            label(for="attendingNo") I will not be there!
+            input(type="radio" name="attending" id="attending")
+            br
+            br
+            label(for="guests") Number of guests
+             input(type="number", name="guest", min=0, max=8)
+        input(type="submit")    
+            
